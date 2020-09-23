@@ -28,4 +28,6 @@ def signup(request):
     else:
         return render(request,'account/signup.html')
 def logout(request):
-    pass
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('home')
